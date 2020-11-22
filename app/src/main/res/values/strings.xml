@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ShoppingBag</string>
+    <string name="txt_promo_heading">Promos</string>
+    <string name="txt_summary_heading">Summary Details</string>
+</resources>

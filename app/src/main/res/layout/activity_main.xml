@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="shoppingBagViewModel"
+            type="com.dsw.shoppingbag.viewmodel.ShoppingBagViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.activities.MainActivity">
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtProductHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Products"
+                android:textColor="@android:color/black"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/rvProducts"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvProducts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                app:adapter="@{shoppingBagViewModel.getProductsListAdapter()}"
+                app:layout_constraintTop_toBottomOf="@id/txtProductHeading" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtPromoHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="@string/txt_promo_heading"
+                android:textColor="@android:color/black"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/rvProducts"
+                app:layout_constraintTop_toBottomOf="@id/rvProducts" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPromos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                app:adapter="@{shoppingBagViewModel.getProductsListAdapter()}"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                app:layout_constraintTop_toBottomOf="@id/txtPromoHeading">
+
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtSummaryDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="@string/txt_summary_heading"
+                android:textColor="@android:color/black"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/rvPromos"
+                app:layout_constraintTop_toBottomOf="@id/rvPromos" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtSubtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@{shoppingBagViewModel.getSubTotal()}"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/rvPromos"
+                app:layout_constraintTop_toBottomOf="@id/txtSummaryDetail" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@{shoppingBagViewModel.getTax()}"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/rvPromos"
+                app:layout_constraintTop_toBottomOf="@id/txtSubtotal" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtDiscounts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@{shoppingBagViewModel.getDiscounts()}"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/rvPromos"
+                app:layout_constraintTop_toBottomOf="@id/txtTax" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@{shoppingBagViewModel.getTotal()}"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/rvPromos"
+                app:layout_constraintTop_toBottomOf="@id/txtDiscounts" />
+
+            <ProgressBar
+                android:id="@+id/mProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
